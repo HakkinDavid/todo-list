@@ -19,7 +19,7 @@ class Task {
         year_month_day due;
         bool completed;
     public:
-        Task (string, int[3], int);
+        Task (string, int, int, int, int, bool);
         ~Task ();
 
         void setDescription (string);
