@@ -15,7 +15,9 @@ Task :: Task (string description = "Sin descripción", int Dyear = 2023, int Dmo
     this -> completed = completed;
 }
 Task :: ~Task  () {
-
+    description = "";
+    priority = 0;
+    completed = 0;
 }
 
 void Task :: setDescription (string d) {
@@ -49,7 +51,7 @@ bool Task :: getCompleted () {
 }
 
 void Task :: display () {
-    cout << (completed ? "☑" : (isDue() ? "☒" : "□")) << " " << due << " | " << description << endl;
+    cout << (completed ? "☑" : (isDue() ? "☒" : "□")) << " " << static_cast<int>(due.year()) << "-" << static_cast<unsigned>(due.month()) << "-" << static_cast<unsigned>(due.day()) << " | " << description << endl;
 }
 bool Task :: isDue () {
     return (year_month_day{time_point_cast<days>(system_clock::now())} >= due);

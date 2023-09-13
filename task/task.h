@@ -1,5 +1,5 @@
 /*  nombre: Clase Task
-    autores: David Emmanuel Santana Romero
+    autor: David Emmanuel Santana Romero
     versión: 1.0
     fecha: 12 de septiembre de 2023
 */
@@ -7,7 +7,6 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <iostream>
 #include <chrono>
 using namespace std;
 using namespace chrono;
