@@ -51,7 +51,7 @@ bool Task :: getCompleted () {
 }
 
 void Task :: display () {
-    cout << (completed ? "☑" : (isDue() ? "☒" : "□")) << " " << static_cast<int>(due.year()) << "-" << static_cast<unsigned>(due.month()) << "-" << static_cast<unsigned>(due.day()) << " | " << description << endl;
+    cout << (completed ? "☑" : (isDue() ? "☒" : "□")) << " " << static_cast<int>(due.year()) << "-" << static_cast<unsigned>(due.month()) << "-" << static_cast<unsigned>(due.day()) << " | " << "Prioridad: " << priority << " | " << description << endl;
 }
 bool Task :: isDue () {
     return (year_month_day{time_point_cast<days>(system_clock::now())} >= due);
