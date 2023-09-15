@@ -13,6 +13,10 @@ int main () {
     Task t3 ("no?", 2023, 9, 11, 0, true);
     Task t4 ("si???", 2023, 9, 14, 3, false);
 
+    ToDoList tdl(3);
+
+    tdl.display();
+
     t1.display();
     t2.display();
     t3.display();
