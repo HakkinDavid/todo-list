@@ -71,5 +71,6 @@
         "xhash": "cpp",
         "array": "cpp",
         "complex": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

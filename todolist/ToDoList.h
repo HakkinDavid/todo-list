@@ -1,6 +1,6 @@
 /*  nombre: Clase ToDoList
-    autores: David Emmanuel Santana Romero, Mauricio Alcantar Dueñas
-    versión: 1.0
+    autores: David Emmanuel Santana Romero, Mauricio Alcantar Dueï¿½as
+    versiï¿½n: 1.0
     fecha: 15 de septiembre de 2023
 */
 
@@ -8,7 +8,7 @@
 #define TODOLIST_H
 
 #include <list>
-#include "task.h"
+#include "../task/task.h"
 using namespace std;
 
 class ToDoList {
