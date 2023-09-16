@@ -1,8 +1,7 @@
-#include "listas.h"
 #include <iostream>
 using namespace std;
 
-template <class T> Nodo<T> :: Nodo (T data, Nodo<T>* next = nullptr) {
+template <class T> Nodo<T> :: Nodo (T data, Nodo<T>* next) {
     this -> data = data;
     this -> next = next;
 }
@@ -24,21 +23,21 @@ template <class T> Nodo<T>* Nodo<T> :: getNext (void) {
 }
 
 
-template <class T> Lista :: Lista () {
+template <class T> Lista<T> :: Lista () {
     this -> head = nullptr;
 }
-template <class T> Lista :: ~Lista () {
+template <class T> Lista<T> :: ~Lista () {
     head = nullptr;
 }
 
-template <class T> void Lista :: setHead (Nodo<T>* h) {
+template <class T> void Lista<T> :: setHead (Nodo<T>* h) {
     head = h;
 }
-template <class T> Nodo<T>* Lista :: getHead (void) {
+template <class T> Nodo<T>* Lista<T> :: getHead (void) {
     return head;
 }
 
-template <class T> void Lista :: emplace_back (void) {
+template <class T> void Lista<T> :: emplace_back (void) {
     Nodo<T> *n = new Nodo<T>;
     if(head == nullptr){ head = n; }
     else{
@@ -46,12 +45,12 @@ template <class T> void Lista :: emplace_back (void) {
         
     }
 }
-template <class T> void Lista :: clear (void) {
+template <class T> void Lista<T> :: clear (void) {
 
 }
-template <class T> void Lista :: insert (Nodo<T>* dex, T obj) {
+template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
 
 }
-template <class T> void Lista :: erase (Nodo<T>* dex) {
+template <class T> void Lista<T> :: erase (Nodo<T>* dex) {
 
 }

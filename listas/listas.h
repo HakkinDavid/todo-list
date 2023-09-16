@@ -16,7 +16,7 @@ private:
     Nodo<T>* next;
 
 public:
-    Nodo (T, Nodo<T>*);
+    Nodo (T data, Nodo<T>* next = nullptr);
     ~Nodo ();
 
     void setData (T);
