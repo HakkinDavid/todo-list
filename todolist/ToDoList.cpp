@@ -29,10 +29,20 @@ void ToDoList :: insertTask (Task t) {
     }
     else{
         while(t.getDue()>(it->getData()).getDue() && it->getNext()!=taskL.getHead()){ it = it->getNext(); }
-        if(t.getDue() != (it->getData()).getDue()){ taskL.insert(it,t); }
+        if(it->getNext() == taskL.getHead()){
+            Nodo<Task> *n = new Nodo<Task>(t);
+            it->setNext(n);
+            n->setNext(taskL.getHead());
+        }
+        else if(t.getDue() != (it->getData()).getDue()){ taskL.insert(it,t); }
         else{
-            while((t.getPriority() > (it->getData()).getPriority()) && (t.getDue() == (it->getData()).getDue())){ it = it->getNext(); }
-            taskL.insert(it,t);
+            while((t.getPriority() > (it->getData()).getPriority()) && (t.getDue() == (it->getData()).getDue()) && (it->getNext()!=taskL.getHead())){ it = it->getNext(); }
+            if(it->getNext() == taskL.getHead()){
+                Nodo<Task> *n = new Nodo<Task>(t);
+                it->setNext(n);
+                n->setNext(taskL.getHead());
+            }
+            else { taskL.insert(it,t); }
         }
     }
     length++;
