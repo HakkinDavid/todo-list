@@ -25,21 +25,26 @@ template <class T> Nodo<T>* Nodo<T> :: getNext (void) {
 
 
 template <class T> Lista :: Lista () {
-
+    this -> head = nullptr;
 }
 template <class T> Lista :: ~Lista () {
-
+    head = nullptr;
 }
 
 template <class T> void Lista :: setHead (Nodo<T>* h) {
-
+    head = h;
 }
 template <class T> Nodo<T>* Lista :: getHead (void) {
-
+    return head;
 }
 
 template <class T> void Lista :: emplace_back (void) {
-
+    Nodo<T> *n = new Nodo<T>;
+    if(head == nullptr){ head = n; }
+    else{
+        Nodo<T> *c = head;
+        
+    }
 }
 template <class T> void Lista :: clear (void) {
 
