@@ -4,7 +4,7 @@
 using namespace std;
 using namespace chrono;
 
-ToDoList :: ToDoList (int length = 0) {
+ToDoList :: ToDoList (int length) {
     this -> length = length;
     for(int i=0; i<length; i++){
         taskL.emplace_back();
@@ -23,36 +23,39 @@ int ToDoList :: getLength (void) {
 }
 
 void ToDoList :: insertTask (Task t) {
-    list<Task>::iterator it = taskL.begin();
+    Nodo<Task> *it = taskL.getHead();
     if (length == 0) {
         taskL.insert(it,t);
     }
-    while(t.getDue() > (*it).getDue()){ it++; }
-    if(t.getDue() != (*it).getDue()){ taskL.insert(it,t); }
     else{
-        while((t.getPriority() > (*it).getPriority()) && (t.getDue() == (*it).getDue())){ it++; }
-        taskL.insert(it,t);
+        while(t.getDue()>(it->getData()).getDue() && it->getNext()!=taskL.getHead()){ it = it->getNext(); }
+        if(t.getDue() != (it->getData()).getDue()){ taskL.insert(it,t); }
+        else{
+            while((t.getPriority() > (it->getData()).getPriority()) && (t.getDue() == (it->getData()).getDue())){ it = it->getNext(); }
+            taskL.insert(it,t);
+        }
     }
     length++;
 }
 
 void ToDoList :: display (void) {
-    list<Task>::iterator it = taskL.begin();
+    Nodo<Task> *it = taskL.getHead();
     for(int i=0; i<length; i++){
         cout << i+1 << ".\t";
-        (*it++).display();
+        (it->getData()).display();
+        it = it->getNext();
     }
 }
 
 void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION
-    list<Task>::iterator it = taskL.begin();
-    for(int i=1; i<n; i++){ it++; }
+    Nodo<Task> *it = taskL.getHead();
+    for(int i=1; i<n; i++){ it = it->getNext(); }
     taskL.erase(it);
     length--;
 }
 
 void ToDoList :: completeTask (int n) { //NEEDS VALIDATION
-    list<Task>::iterator it = taskL.begin();
-    for(int i=1; i<n; i++){ it++; }
-    it->setCompleted(true);
+    Nodo<Task> *it = taskL.getHead();
+    for(int i=1; i<n; i++){ it = it->getNext(); }
+    (it->getData()).setCompleted(true);
 }

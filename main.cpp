@@ -7,7 +7,7 @@
 
 using namespace std;
 
-ToDoList LIST(0);
+ToDoList LIST;
 
 void insertarTarea () {
     string desc;
@@ -112,5 +112,7 @@ int main () {
    lts.getHead()->getData().display();
    */
 
-   mainMenu.display(true, true);
+    system("chcp 65001"); //caracteres en español
+    system("cls");
+    mainMenu.display(true, true);
 }

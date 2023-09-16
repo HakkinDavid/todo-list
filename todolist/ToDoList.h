@@ -7,16 +7,16 @@
 #ifndef TODOLIST_H
 #define TODOLIST_H
 
-#include <list>
+#include "../listas/listas.h"
 #include "../task/task.h"
 using namespace std;
 
 class ToDoList {
 private:
-    list<Task> taskL;
+    Lista<Task> taskL;
     int length;
 public:
-    ToDoList (int);
+    ToDoList (int length = 0);
     ~ToDoList ();
 
     void setLength (int);

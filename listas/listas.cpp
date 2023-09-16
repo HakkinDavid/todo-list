@@ -56,9 +56,16 @@ template <class T> void Lista<T> :: clear (void) {
 }
 template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
     Nodo<T> *n = new Nodo<T>(obj);
-    if(head == nullptr){ 
+    if(dex == nullptr){ 
         head = n; 
         n->setNext(head);
+    }
+    else if(dex == head){
+        head = n;
+        n->setNext(dex);
+        Nodo<T> *c = dex;
+        while(c->getNext() != dex){ c = c->getNext(); }
+        c->setNext(head);
     }
     else{
         Nodo<T> *c = head;
@@ -70,7 +77,6 @@ template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
         p->setNext(n);
         n->setNext(c);
     }
-    delete n;
 }
 template <class T> void Lista<T> :: erase (Nodo<T>* dex) {
     Nodo<T> *c = head;
