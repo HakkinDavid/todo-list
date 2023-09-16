@@ -26,7 +26,7 @@ public:
 };
 
 template <class T>
-class Lista{
+class Lista {
 private:
     Nodo<T>* head;
 

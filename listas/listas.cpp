@@ -38,15 +38,30 @@ template <class T> Nodo<T>* Lista<T> :: getHead (void) {
 }
 
 template <class T> void Lista<T> :: emplace_back (void) {
-    Nodo<T> *n = new Nodo<T>;
-    if(head == nullptr){ head = n; }
+    T t;
+    Nodo<T> *n = new Nodo<T>(t);
+    n->setNext(head); //Circular i guess
+    if(head == nullptr){ 
+        head = n; 
+    }
     else{
         Nodo<T> *c = head;
-        
+        while(c->getNext() != head){ c = c->getNext(); }
+        c->setNext(n);
     }
+    delete n;
 }
 template <class T> void Lista<T> :: clear (void) {
-
+    if(head != nullptr){ 
+        Nodo<T> *c = head;
+        Nodo<T> *p = c;
+        do{
+            p = c;
+            c = c->getNext();
+            p -> ~Nodo();
+        } while(c != head);
+        head = nullptr;
+    }
 }
 template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
 
