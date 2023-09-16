@@ -43,10 +43,10 @@ int main () {
             case 5:{//    MENU PRINCIPAL
                 break;}//        END CASE MENU PRINCIPAL
             default:{
-                cout << "What." << endl;
+                cout << "You say what???" << endl;
                 break;}
         }
-        cout << "Desea salir del programa? Usar '#' para salir. Cualquier otro para continuar." << endl;
+        cout << "¿Desea salir del programa? Usa '#' para salir. Ingresa cualquier otro caracter para continuar." << endl;
         cin >> choice;
     }while(choice!='#'); // end do while repeating menu
 }

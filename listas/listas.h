@@ -10,7 +10,7 @@
 using namespace std;
 
 template <class T>
-class Nodo{
+class Nodo {
 private:
     T data;
     Nodo<T>* next;
