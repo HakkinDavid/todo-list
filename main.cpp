@@ -81,6 +81,7 @@ Menu mainMenu ({
 }, "MENÚ PRINCIPAL");
 
 int main () {
+    char choice=0;
     /*
     // individual tasks examples
     // actual program should implement these inside the yet to do ToDoList class
@@ -111,6 +112,36 @@ int main () {
    lts.erase(lts.getHead());
    lts.getHead()->getData().display();
    */
-
-   mainMenu.display(true, true);
+    // menu system
+do{ // do while repeating menu
+    int choInt=0; // choice but int lolool
+    do{// do while choices
+        cout << "Elegir opcion.\n1.- Ver lista To-Do.\n2.- Insertar tarea.\n3.- Remover tarea.\n4.- Cumplir tarea." << endl;
+        cin >> choInt;
+    }while(choInt<1 || choInt>4);// end do while choices
+    switch(choInt){
+        case 1:{ //   VER LISTA
+            if (LIST.getLength() == 0){
+            cout << "Sin tareas pendientes." << endl;
+            return;}
+            LIST.display();
+            cout << "Presiona cualquier tecla para continuar." << endl;
+            _getch();
+            system("cls");
+            break;}//       END CASE VER LISTA
+        case 2:{ //   INSERTAR TAREA
+            insertarTarea();
+            break;}//        END CASE INSERTAR TAREA
+        case 3:{ //   REMOVER TAREA
+            removerTarea();
+            break;}//        END REMOVER TAREA
+        case 4:{ //   CUMPLIR TAREA
+            completarTarea();
+            break;}//        END CASE CUMPLIR TAREA
+        default:{
+            break;}
+    }
+    cout << "Desea salir del programa? Usar '#' para salir. Cualquier otro para continuar." << endl;
+    cin >> choice;
+}while(choice!='#'); // end do while repeating menu
 }
