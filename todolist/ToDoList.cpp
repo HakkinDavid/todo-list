@@ -24,6 +24,9 @@ int ToDoList :: getLength (void) {
 
 void ToDoList :: insertTask (Task t) {
     list<Task>::iterator it = taskL.begin();
+    if (length == 0) {
+        taskL.insert(it,t);
+    }
     while(t.getDue() > (*it).getDue()){ it++; }
     if(t.getDue() != (*it).getDue()){ taskL.insert(it,t); }
     else{
@@ -48,3 +51,8 @@ void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION
     length--;
 }
 
+void ToDoList :: completeTask (int n) { //NEEDS VALIDATION
+    list<Task>::iterator it = taskL.begin();
+    for(int i=1; i<n; i++){ it++; }
+    it->setCompleted(true);
+}

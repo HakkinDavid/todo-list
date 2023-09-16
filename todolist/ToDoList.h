@@ -25,6 +25,7 @@ public:
     void insertTask (Task);
     void display (void);
     void eraseTask (int);
+    void completeTask (int);
 };
 
 #include "ToDoList.cpp"
