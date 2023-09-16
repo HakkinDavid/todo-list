@@ -1,7 +1,7 @@
 /*  nombre: Clase Lista
     autores: Mauricio Alcantar Due�as
-    versi�n: 1.0
-    fecha: 15 de septiembre de 2023
+    versi�n: 2.0
+    fecha: 16 de septiembre de 2023
 */
 
 #ifndef LISTAS_H

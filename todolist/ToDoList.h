@@ -1,7 +1,7 @@
 /*  nombre: Clase ToDoList
     autores: David Emmanuel Santana Romero, Mauricio Alcantar Due�as
-    versi�n: 1.0
-    fecha: 15 de septiembre de 2023
+    versi�n: 3.0
+    fecha: 16 de septiembre de 2023
 */
 
 #ifndef TODOLIST_H

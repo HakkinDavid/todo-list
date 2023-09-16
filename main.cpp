@@ -26,7 +26,7 @@ void insertarTarea () {
     cin >> d;
     getchar();}
     while (d < 1 || d > 31);
-    cout << "Prioridad [0 para el mínimo]: ";
+    cout << "Prioridad [0 para el máximo]: ";
     cin >> p;
     getchar();
     cout << "¿Está completada? [0 = no, 1 = sí]: ";
@@ -84,7 +84,7 @@ int main () {
     /*
     // individual tasks examples
     // actual program should implement these inside the yet to do ToDoList class
-    // constructor (description string, year, month, day, priority (0 is lowest), boolean completed)
+    // constructor (description string, year, month, day, priority (0 is highest), boolean completed)
     Task t1 ("nose. si?", 2023, 9, 12);
     Task t2 ("si no?", 2023, 9, 16);
     Task t3 ("no?", 2023, 9, 11, 0, true);
@@ -95,22 +95,6 @@ int main () {
     t3.display();
     t4.display();
     */
-
-   // teacher, our list implementation literally dies.
-   // it goes "segmentation fault!!!" at every line of code.
-   // forgive us for using <list> in the underlying ToDoClass.
-   // we really would appreciate your advice.
-   // following test for reference.
-   /*
-   Lista<Task> lts;
-   Task tt;
-   lts.emplace_back();
-   lts.clear();
-   lts.emplace_back();
-   lts.insert(lts.getHead(),tt);
-   lts.erase(lts.getHead());
-   lts.getHead()->getData().display();
-   */
 
     system("chcp 65001"); //caracteres en español
     system("cls");
