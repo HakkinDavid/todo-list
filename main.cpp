@@ -95,6 +95,13 @@ int main () {
     t3.display();
     t4.display();
     */
+
+   // teacher, our list implementation literally dies.
+   // it goes "segmentation fault!!!" at every line of code.
+   // forgive us for using <list> in the underlying ToDoClass.
+   // we really would appreciate your advice.
+   // following test for reference.
+   /*
    Lista<Task> lts;
    Task tt;
    lts.emplace_back();
@@ -103,6 +110,7 @@ int main () {
    lts.insert(lts.getHead(),tt);
    lts.erase(lts.getHead());
    lts.getHead()->getData().display();
+   */
 
    mainMenu.display(true, true);
 }
