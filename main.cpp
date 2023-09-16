@@ -43,5 +43,14 @@ int main () {
     t3.display();
     t4.display();
     */
+   Lista<Task> lts;
+   Task tt;
+   lts.emplace_back();
+   lts.clear();
+   lts.emplace_back();
+   lts.insert(lts.getHead(),tt);
+   lts.erase(lts.getHead());
+   lts.getHead()->getData().display();
+
    mainMenu.display(true, true);
 }

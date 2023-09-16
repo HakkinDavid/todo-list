@@ -52,20 +52,32 @@ template <class T> void Lista<T> :: emplace_back (void) {
     delete n;
 }
 template <class T> void Lista<T> :: clear (void) {
-    if(head != nullptr){ 
-        Nodo<T> *c = head;
-        Nodo<T> *p = c;
-        do{
-            p = c;
-            c = c->getNext();
-            p -> ~Nodo();
-        } while(c != head);
-        head = nullptr;
-    }
+    head = nullptr;
 }
 template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
-
+    Nodo<T> *n = new Nodo<T>(obj);
+    if(head == nullptr){ 
+        head = n; 
+        n->setNext(head);
+    }
+    else{
+        Nodo<T> *c = head;
+        Nodo<T> *p = c;
+        while(c != dex){
+            p = c;
+            c = c->getNext();
+        }
+        p->setNext(n);
+        n->setNext(c);
+    }
+    delete n;
 }
 template <class T> void Lista<T> :: erase (Nodo<T>* dex) {
-
+    Nodo<T> *c = head;
+    Nodo<T> *p = c;
+    while(c != dex){
+        p = c;
+        c = c->getNext();
+    }
+    p->setNext(c->getNext());
 }
