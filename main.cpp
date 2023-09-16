@@ -2,15 +2,34 @@
 #include "task/task.h"
 #include "todolist/ToDoList.h"
 #include "listas/listas.h"
-
-// Someone should add #include <windows.h> here for the cls() function
-// which erases the console, for better viewing. I can't because Mac :)
+#include "menu/menu.h"
+#include <conio.h>
 
 using namespace std;
 
+ToDoList LIST(10);
+
+void insertarTarea () {
+
+}
+
+void removerTarea () {
+
+}
+
+void completarTarea () {
+
+}
+
+Menu mainMenu ({
+    {'1', {"Ver lista", [] () { LIST.display(); cout << "Presiona cualquier tecla para continuar." << endl; _getch(); system("cls"); }}},
+    {'2', {"Insertar tarea", insertarTarea }},
+    {'3', {"Remover tarea", removerTarea }},
+    {'4', {"Completar tarea", completarTarea }}
+}, "MENÚ PRINCIPAL");
+
 int main () {
-    char choice=0;
-    ToDoList LIST(10);
+    /*
     // individual tasks examples
     // actual program should implement these inside the yet to do ToDoList class
     // constructor (description string, year, month, day, priority (0 is lowest), boolean completed)
@@ -23,30 +42,6 @@ int main () {
     t2.display();
     t3.display();
     t4.display();
-        // menu system
-    do{ // do while repeating menu
-        int choInt=0; // choice but int lolool
-        do{// do while choices
-            cout << "Elegir opcion.\n1.- Ver lista To-Do.\n2.- Insertar tarea.\n3.- Remover tarea.\n4.- Cumplir tarea.\n5.- Menu principal." << endl;
-            cin >> choInt;
-        }while(choInt<1 || choInt>5);// end do while choices
-        switch(choInt){
-            case 1:{ //   VER LISTA
-                LIST.display();
-                break;}//       END CASE VER LISTA
-            case 2:{ //   INSERTAR TAREA
-                break;}//        END CASE INSERTAR TAREA
-            case 3:{ //   REMOVER TAREA
-                break;}//        END REMOVER TAREA
-            case 4:{ //   CUMPLIR TAREA
-                break;}//        END CASE CUMPLIR TAREA
-            case 5:{//    MENU PRINCIPAL
-                break;}//        END CASE MENU PRINCIPAL
-            default:{
-                cout << "You say what???" << endl;
-                break;}
-        }
-        cout << "¿Desea salir del programa? Usa '#' para salir. Ingresa cualquier otro caracter para continuar." << endl;
-        cin >> choice;
-    }while(choice!='#'); // end do while repeating menu
+    */
+   mainMenu.display(true, true);
 }
