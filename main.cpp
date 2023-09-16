@@ -1,6 +1,7 @@
 #include <iostream>
 #include "task/task.h"
-#include "todolist/todo.h"
+#include "todolist/ToDoList.h"
+#include "listas/listas.h"
 
 // Someone should add #include <windows.h> here for the cls() function
 // which erases the console, for better viewing. I can't because Mac :)
