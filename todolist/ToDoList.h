@@ -13,17 +13,17 @@ using namespace std;
 
 class ToDoList {
 private:
-    Lista<Task> taskL;
+    Lista<Task> taskL; //lista ligada para guardar obj task
     int length;
 public:
-    ToDoList (int length = 0);
-    ~ToDoList ();
+    ToDoList (int length = 0);//constructor
+    ~ToDoList ();//destructor
 
     void setLength (int);
     int getLength (void);
 
-    void insertTask (Task);
-    void display (void);
+    void insertTask (Task);//insertar un obj task mientras mantendiendo el orden 
+    void display (void);//desplegar lista de tasks en el todolist
     void eraseTask (int);
     void completeTask (int);
 };

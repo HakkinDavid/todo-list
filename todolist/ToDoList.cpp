@@ -4,67 +4,71 @@
 using namespace std;
 using namespace chrono;
 
-ToDoList :: ToDoList (int length) {
+ToDoList :: ToDoList (int length) { //constructor para inizializar obj con max cap del list
     this -> length = length;
+    //initialize taskL list con obj empty 
     for(int i=0; i<length; i++){
         taskL.emplace_back();
     }
 }
-ToDoList :: ~ToDoList () {
-    taskL.clear();
+ToDoList :: ~ToDoList () { //destructor
+    taskL.clear();//clear para un reset del length a 0
     length = 0;
 }
 
 void ToDoList :: setLength (int len) {
-    length = len;
+    length = len; //new length to set
 }
 int ToDoList :: getLength (void) {
-    return length;
+    return length; //getssss
 }
 
-void ToDoList :: insertTask (Task t) {
-    Nodo<Task> *it = taskL.getHead();
-    if (length == 0) {
+void ToDoList :: insertTask (Task t) { //mantener orden del list por fecha mientras que insertas un obj
+   // -t = task para ser insertado
+    Nodo<Task> *it = taskL.getHead(); 
+    if (length == 0) { //si no tiene nada la list, haga un insert del task a el
         taskL.insert(it,t);
     }
     else{
         while(t.getDue()>(it->getData()).getDue() && it->getNext()!=taskL.getHead()){ it = it->getNext(); }
-        if(it->getNext() == taskL.getHead()){
+        if(it->getNext() == taskL.getHead()){ //insert task si llegamos al final del list
             Nodo<Task> *n = new Nodo<Task>(t);
             it->setNext(n);
             n->setNext(taskL.getHead());
         }
         else if(t.getDue() != (it->getData()).getDue()){ taskL.insert(it,t); }
+        //insert task si las fechas no son igual
         else{
             while((t.getPriority() > (it->getData()).getPriority()) && (t.getDue() == (it->getData()).getDue()) && (it->getNext()!=taskL.getHead())){ it = it->getNext(); }
-            if(it->getNext() == taskL.getHead()){
+            if(it->getNext() == taskL.getHead()){//insert task cuando llegamos al fin del list
                 Nodo<Task> *n = new Nodo<Task>(t);
                 it->setNext(n);
                 n->setNext(taskL.getHead());
             }
-            else { taskL.insert(it,t); }
+            else { taskL.insert(it,t); } //insert task
         }
     }
     length++;
 }
 
-void ToDoList :: display (void) {
+void ToDoList :: display (void) { //desplegar la lista de tasks en el ToDoList
     Nodo<Task> *it = taskL.getHead();
     for(int i=0; i<length; i++){
-        cout << i+1 << ".\t";
-        (it->getData()).display();
+        cout << i+1 << ".\t";//desplegar numero del task
+        (it->getData()).display();//desplegar detalles task
         it = it->getNext();
     }
 }
 
-void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION
+void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION para segurar n es un index valido
+    //borrar task de la list por su position :( (indexxx)
     Nodo<Task> *it = taskL.getHead();
     for(int i=1; i<n; i++){ it = it->getNext(); }
     taskL.erase(it);
     length--;
 }
-
-void ToDoList :: completeTask (int n) { //NEEDS VALIDATION
+//marcar un task como completo por su position
+void ToDoList :: completeTask (int n) { //NEEDS VALIDATION para asegurar q n es un index valido
     Nodo<Task> *it = taskL.getHead();
     for(int i=1; i<n; i++){ it = it->getNext(); }
     (it->getData()).setCompleted(true);
