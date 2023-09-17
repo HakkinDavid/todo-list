@@ -1,46 +1,48 @@
 #include <iostream>
 using namespace std;
-
+//nodo class implementacion
 template <class T> Nodo<T> :: Nodo (T data, Nodo<T>* next) {
+    //nodo constructor
     this -> data = data;
     this -> next = next;
+    //parametros
 }
-template <class T> Nodo<T> :: ~Nodo () {
+template <class T> Nodo<T> :: ~Nodo () {//destructor
     next = nullptr;
 }
 
 template <class T> void Nodo<T> :: setData (T d) {
-    data = d;
+    data = d;//set los datos guardados en el nodo
 }
 template <class T> void Nodo<T> :: setNext (Nodo<T>* n) {
-    next = n;
+    next = n;//set al pointer para el proximo nodo en la lista
 }
-template <class T> T Nodo<T> :: getData (void) {
+template <class T> T Nodo<T> :: getData (void) {//get data que estaba guardado en el nodo
     return data;
 }
 template <class T> Nodo<T>* Nodo<T> :: getNext (void) {
-    return next;
+    return next;//get el pointer al proximo nodo en la lista
 }
 
 
-template <class T> Lista<T> :: Lista () {
+template <class T> Lista<T> :: Lista () {//constructor para lista empty initializado
     this -> head = nullptr;
 }
-template <class T> Lista<T> :: ~Lista () {
+template <class T> Lista<T> :: ~Lista () {//destructor
     head = nullptr;
 }
 
-template <class T> void Lista<T> :: setHead (Nodo<T>* h) {
+template <class T> void Lista<T> :: setHead (Nodo<T>* h) {//set el primer nodo de la lista
     head = h;
 }
-template <class T> Nodo<T>* Lista<T> :: getHead (void) {
+template <class T> Nodo<T>* Lista<T> :: getHead (void) {//get first nodo de la lista
     return head;
 }
 
-template <class T> void Lista<T> :: emplace_back (void) {
+template <class T> void Lista<T> :: emplace_back (void) {//poner un nodo nuevo con datos default al final de la lista
     T t;
     Nodo<T> *n = new Nodo<T>(t);
-    n->setNext(head); //Circular i guess
+    n->setNext(head); //Circular reference i guess
     if(head == nullptr){ 
         head = n; 
     }
@@ -52,13 +54,13 @@ template <class T> void Lista<T> :: emplace_back (void) {
     delete n;
 }
 template <class T> void Lista<T> :: clear (void) {
-    head = nullptr;
+    head = nullptr;//hacer un CLEAR a la lista porque se hico un set de nullptr al head
 }
-template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
+template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {//insertar un nodo nuevo con los provided datos despues de nodo especificado en la lista
     Nodo<T> *n = new Nodo<T>(obj);
     if(dex == nullptr){ 
         head = n; 
-        n->setNext(head);
+        n->setNext(head);//MAKE LIST CIRCULAR?????? WHATTTTT :O
     }
     else if(dex == head){
         head = n;
@@ -78,7 +80,7 @@ template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {
         n->setNext(c);
     }
 }
-template <class T> void Lista<T> :: erase (Nodo<T>* dex) {
+template <class T> void Lista<T> :: erase (Nodo<T>* dex) {//erase al nodo especificado de la lista :[
     Nodo<T> *c = head;
     Nodo<T> *p = c;
     while(c != dex){
