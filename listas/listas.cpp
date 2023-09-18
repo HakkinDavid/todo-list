@@ -54,7 +54,7 @@ template <class T> void Lista<T> :: emplace_back (void) {//poner un nodo nuevo c
     delete n;
 }
 template <class T> void Lista<T> :: clear (void) {
-    head = nullptr;//hacer un CLEAR a la lista porque se hico un set de nullptr al head
+    head = nullptr;
 }
 template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {//insertar un nodo nuevo con los provided datos despues de nodo especificado en la lista
     Nodo<T> *n = new Nodo<T>(obj);
@@ -83,9 +83,15 @@ template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {//insertar un 
 template <class T> void Lista<T> :: erase (Nodo<T>* dex) {//erase al nodo especificado de la lista :[
     Nodo<T> *c = head;
     Nodo<T> *p = c;
+    if(dex == head){
+        head = c->getNext();
+        delete c;
+        return;
+    }
     while(c != dex){
         p = c;
         c = c->getNext();
     }
     p->setNext(c->getNext());
+    delete c;
 }

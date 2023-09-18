@@ -63,6 +63,11 @@ void ToDoList :: display (void) { //desplegar la lista de tasks en el ToDoList
 void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION para segurar n es un index valido
     //borrar task de la list por su position :( (indexxx)
     Nodo<Task> *it = taskL.getHead();
+    if(length==1){ 
+        delete it; 
+        taskL.setHead(nullptr);
+        return; 
+    }
     for(int i=1; i<n; i++){ it = it->getNext(); }
     taskL.erase(it);
     length--;
