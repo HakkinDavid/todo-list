@@ -56,11 +56,11 @@ template <class T> void Lista<T> :: emplace_back (void) {//poner un nodo nuevo c
 template <class T> void Lista<T> :: clear (void) {
     head = nullptr;
 }
-template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) {//insertar un nodo nuevo con los provided datos despues de nodo especificado en la lista
+template <class T> void Lista<T> :: insert (Nodo<T>* dex, T obj) { //insertar un nodo nuevo con los provided datos despues de nodo especificado en la lista
     Nodo<T> *n = new Nodo<T>(obj);
     if(dex == nullptr){ 
         head = n; 
-        n->setNext(head);//MAKE LIST CIRCULAR?????? WHATTTTT :O
+        n->setNext(head); //MAKE LIST CIRCULAR?????? WHATTTTT :O
     }
     else if(dex == head){
         head = n;
