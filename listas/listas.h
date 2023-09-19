@@ -21,7 +21,7 @@ public:
 
     void setData (T);
     void setNext (Nodo<T>*);
-    T getData (void);
+    T& getData (void);
     Nodo<T>* getNext (void);//getter para el pointer al prox nodo en la litsa omg :O
 };
 

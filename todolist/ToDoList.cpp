@@ -88,5 +88,5 @@ void ToDoList :: eraseTask (int n) { //NEEDS VALIDATION para segurar n es un ind
 void ToDoList :: completeTask (int n) { //NEEDS VALIDATION para asegurar q n es un index valido
     Nodo<Task> *it = taskL.getHead();
     for(int i=1; i<n; i++){ it = it->getNext(); }
-    (it->getData()).setCompleted(true);
+    it->getData().setCompleted(true);
 }

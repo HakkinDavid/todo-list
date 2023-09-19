@@ -17,7 +17,7 @@ template <class T> void Nodo<T> :: setData (T d) {
 template <class T> void Nodo<T> :: setNext (Nodo<T>* n) {
     next = n;//set al pointer para el proximo nodo en la lista
 }
-template <class T> T Nodo<T> :: getData (void) {//get data que estaba guardado en el nodo
+template <class T> T& Nodo<T> :: getData (void) {//get data que estaba guardado en el nodo
     return data;
 }
 template <class T> Nodo<T>* Nodo<T> :: getNext (void) {
